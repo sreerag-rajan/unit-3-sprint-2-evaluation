@@ -1,13 +1,16 @@
 let menu =[];
+let cart = JSON.parse(localStorage.getItem("mealCart"))||[];
 async function getMeal(){
     try{
         
         for(let i =0; i<10; i++){
             let res = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
             let data = await res.json();
-            menu.push(data.meals);
+            console.log(data.meals[0])
+            menu.push(data.meals[0]);
 
         }
+        displayMenu(menu);
         console.log(menu)
         
     }
@@ -18,7 +21,8 @@ async function getMeal(){
 getMeal()
 
 function displayMenu(arr){
-    arr.map(function(el){
+    for(let i =0; i<arr.length; i++){
+        el = arr[i];
         let img = document.createElement("img");
         img.src = el.strMealThumb
 
@@ -27,7 +31,15 @@ function displayMenu(arr){
         price.textContent = p;
 
         let addcart = document.createElement("button")
-        
-    })
+        addcart.textContent = "Add To Cart";
+        addcart.onclick = function(){
+            cart.push(el);
+            localStorage.setItem("mealCart",JSON.stringify(cart));
+        }
+
+        let div = document.createElement("div");
+        div.append(img, price, addcart);
+        document.querySelector("#displayMenu").append(div);
+    }
 
 }
