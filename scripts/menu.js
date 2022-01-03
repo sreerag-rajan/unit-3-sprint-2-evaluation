@@ -1,5 +1,6 @@
 let menu =[];
 let cart = JSON.parse(localStorage.getItem("mealCart"))||[];
+displayCartCount()
 async function getMeal(){
     try{
         
@@ -33,13 +34,22 @@ function displayMenu(arr){
         let addcart = document.createElement("button")
         addcart.textContent = "Add To Cart";
         addcart.onclick = function(){
-            cart.push(el);
+            let obj = {
+                meal: el,
+                price: p,
+            }
+            cart.push(obj);
             localStorage.setItem("mealCart",JSON.stringify(cart));
+            displayCartCount();
         }
 
         let div = document.createElement("div");
         div.append(img, price, addcart);
         document.querySelector("#displayMenu").append(div);
+        
     }
 
+}
+function displayCartCount(){
+    document.querySelector("#cartCount").textContent = cart.length;
 }
