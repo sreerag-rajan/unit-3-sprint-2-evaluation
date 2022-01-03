@@ -1,6 +1,7 @@
 let cart = JSON.parse(localStorage.getItem("mealCart"))
 
 function displayCart(){
+    document.querySelector("table").innerHTML="";
     cart.map(function(el,index){
         let row = document.createElement("tr");
         let td1 = document.createElement("td");
@@ -45,6 +46,7 @@ function remove(i){
     cart.splice(i,1);
     localStorage.setItem("mealCart",JSON.stringify(cart));
     displayCart();
+    total();
 }
 
 document.querySelector("#tot").textContent =`Total: ${total()}`;

@@ -1,3 +1,15 @@
 img{
     width: 100px;
 }
+table{
+    width: 85%;
+    border: 1px solid black;
+}
+th,td{
+    border: 1px solid black;
+}
+#tot{
+    text-align: right;
+    margin-right: 15%;
+    font-size: 20px;
+}
