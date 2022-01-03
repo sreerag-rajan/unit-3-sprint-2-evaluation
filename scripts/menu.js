@@ -29,7 +29,7 @@ function displayMenu(arr){
 
         let p = Math.floor((Math.random()*400))+100
         let price = document.createElement("p");
-        price.textContent = p;
+        price.textContent = `Price:${p}`;
 
         let addcart = document.createElement("button")
         addcart.textContent = "Add To Cart";
