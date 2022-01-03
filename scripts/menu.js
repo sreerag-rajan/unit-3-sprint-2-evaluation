@@ -51,5 +51,5 @@ function displayMenu(arr){
 
 }
 function displayCartCount(){
-    document.querySelector("#cartCount").textContent = cart.length;
+    document.querySelector("#cartCount").textContent = `Number of Items in cart:${cart.length}`;
 }
