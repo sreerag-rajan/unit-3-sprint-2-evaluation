@@ -1,0 +1,11 @@
+.formdiv{
+    border: 1px solid black;
+    padding: 30px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 50px;
+
+}
+h1{
+    text-align: center;
+}
